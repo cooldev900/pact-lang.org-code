@@ -10,22 +10,22 @@
 ;; ========================================================
 
 ;; begin a transaction
-
+(begin-tx)
 ;; load the auth.pact file
-
+(load "auth.pact")
 ;; commit the transaction
-
+(commit-tx)
 
 ;; ========================================================
 ;;                 3.2-load-payments-module
 ;; ========================================================
 
 ;; begin a transaction
-
+(begin-tx)
 ;; load the payments.pact file
-
+(load "payments.pact")
 ;; commit the transaction
-
+(commit-tx)
 
 ;; ========================================================
 ;;                   3.3-use-auth-module
@@ -33,7 +33,7 @@
 (begin-tx)
 
 ;; use the auth module
-
+(use auth)
 ;; --------------------END OF CHALLENGE -------------------
 
 (env-data {"admin-keyset" : ["admin"],
@@ -49,7 +49,7 @@
 ;; ========================================================
 
 ;; use the payments module
-
+(use payments)
 ;; --------------------END OF CHALLENGE -------------------
 
 ;create Sarah and James's payment account

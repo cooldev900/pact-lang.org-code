@@ -37,7 +37,7 @@
   (defun get-balance (userId)
     "Only admin can read balance."
     ;; call enforce-user-auth from auth with parameter admin
-
+    (enforce-user-auth userId)
     ;; --------------------END OF CHALLENGE -------------------
     (with-read accounts-table userId
       { "balance":= balance }
@@ -50,7 +50,7 @@
   (defun pay (from to amount)
     (with-read accounts-table from { "balance":= from-bal }
       ;; call enforce-user-auth from auth with parameter from
-
+      (enforce-user-auth from)
       ;; --------------------END OF CHALLENGE -------------------
       (with-read accounts-table to { "balance":= to-bal }
         (enforce (> amount 0.0) "Negative Transaction Amount")
