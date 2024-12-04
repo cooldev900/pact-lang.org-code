@@ -6,9 +6,9 @@
   ;; ========================================================
   ;;                    2.1-use-auth
   ;; ========================================================
-
+  
   ;; use the auth module
-
+  use auth
   ;; --------------------END OF CHALLENGE -------------------
 
   ;; define-schemas-and-table
@@ -24,7 +24,7 @@
   (defun create-account (userId initial-balance)
     "Create a new account for ID with INITIAL-BALANCE funds, must be administrator."
     ;; call enforce-user-auth from auth with parameter userId
-
+    (enforce-user-auth userId)
     ;; --------------------END OF CHALLENGE -------------------
     (enforce (>= initial-balance 0.0) "Initial balances must be >= 0.")
     (insert accounts-table userId
